@@ -7,6 +7,8 @@ const checkToken = require('../middlewares/checkToken');
 const validators = require('../middlewares/validators');
 const chatController = require('../controllers/chatController');
 const upload = require('../utils/fileUpload');
+const contestsRouter = require('./contestsRouter');
+
 const router = express.Router();
 
 router.post(
@@ -24,15 +26,7 @@ router.post(
   contestController.dataForContest
 );
 
-router.post(
-  '/pay',
-  checkToken.checkToken,
-  basicMiddlewares.onlyForCustomer,
-  upload.uploadContestFiles,
-  basicMiddlewares.parseBody,
-  validators.validateContestCreation,
-  userController.payment
-);
+router.use('/contests', contestsRouter);
 
 router.post(
   '/getCustomersContests',
