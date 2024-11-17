@@ -11,6 +11,8 @@ const contestsRouter = require('./contestsRouter');
 
 const router = express.Router();
 
+router.use('/contests', contestsRouter);
+
 router.post(
   '/registration',
   validators.validateRegistrationData,
@@ -26,13 +28,24 @@ router.post(
   contestController.dataForContest
 );
 
-router.use('/contests', contestsRouter);
+// get /contests/customers
+// /users/id/contests
+// /customers/id/contests
+// get /contests/byCustomer
+// router.post(
+//   '/getCustomersContests',
+//   checkToken.checkToken,
+//   contestController.getCustomersContests
+// );
 
-router.post(
-  '/getCustomersContests',
-  checkToken.checkToken,
-  contestController.getCustomersContests
-);
+// get /getContestById -> get /contests/:id
+// headers -> params
+// router.get(
+//   '/getContestById',
+//   checkToken.checkToken,
+//   basicMiddlewares.canGetContest,
+//   contestController.getContestById
+// );
 
 router.post(
   '/getAllContests',
