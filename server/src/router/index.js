@@ -28,25 +28,6 @@ router.post(
   contestController.dataForContest
 );
 
-// get /contests/customers
-// /users/id/contests
-// /customers/id/contests
-// get /contests/byCustomer
-// router.post(
-//   '/getCustomersContests',
-//   checkToken.checkToken,
-//   contestController.getCustomersContests
-// );
-
-// get /getContestById -> get /contests/:id
-// headers -> params
-// router.get(
-//   '/getContestById',
-//   checkToken.checkToken,
-//   basicMiddlewares.canGetContest,
-//   contestController.getContestById
-// );
-
 router.post(
   '/getAllContests',
   checkToken.checkToken,
