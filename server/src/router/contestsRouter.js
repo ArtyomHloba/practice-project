@@ -19,6 +19,12 @@ contestsRouter.post(
 contestsRouter.get('/byCustomer', contestController.getCustomersContests);
 
 contestsRouter.get(
+  '/byCreative',
+  basicMiddlewares.onlyForCreative,
+  contestController.getContests
+);
+
+contestsRouter.get(
   '/:id',
   basicMiddlewares.canGetContest,
   contestController.getContestById

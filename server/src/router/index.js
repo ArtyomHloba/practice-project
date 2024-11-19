@@ -30,11 +30,13 @@ router.use('/contests', contestsRouter);
 
 router.post('/dataForContest', contestController.dataForContest);
 
-router.post(
-  '/getAllContests',
-  basicMiddlewares.onlyForCreative,
-  contestController.getContests
-);
+// /contests/creative
+// /contests/byCreative
+// router.post(
+//   '/getAllContests',
+//   basicMiddlewares.onlyForCreative,
+//   contestController.getContests
+// );
 
 router.get('/downloadFile/:fileName', contestController.downloadFile);
 

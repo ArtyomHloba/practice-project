@@ -28,24 +28,21 @@ export const removeChatFromCatalog = data =>
 export const changeCatalogName = data => http.post('updateNameCatalog', data);
 export const getCustomersContests = data =>
   http.get(`contests/byCustomer?${stringify(data)}`);
-export const getActiveContests = ({
-  offset,
-  limit,
-  typeIndex,
-  contestId,
-  industry,
-  awardSort,
-  ownEntries,
-}) =>
-  http.post('getAllContests', {
-    offset,
-    limit,
-    typeIndex,
-    contestId,
-    industry,
-    awardSort,
-    ownEntries,
-  });
+// export const getActiveContests = ({
+//   offset,
+//   limit,
+//   typeIndex,
+//   contestId,
+//   industry,
+//   awardSort,
+//   ownEntries,
+// }) =>
+//   http.get(`contests/byCreative?limit=${limit}&offset=${offset}&status={}`, {
+
+//   });
+
+export const getActiveContests = data =>
+  http.get(`contests/byCreative?${stringify(data)}`);
 
 export const getContestById = ({ contestId }) =>
   http.get(`contests/${contestId}`);
